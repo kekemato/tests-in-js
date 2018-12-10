@@ -1,4 +1,5 @@
 import { orderTotal } from './index'
+import { fetchOrdersAndCalculateTotal } from './index'
 
 describe('Sum without quantity', () => {
     const orders = [
@@ -101,5 +102,13 @@ describe('Sum with shipping', () => {
     test('Free shipping <= 200', () => {
         expect(orderTotal(orders2)
         ).toBe(45)
+    })
+})
+
+describe('Fetching data to calculate sum', () => {
+    test('Fetchin data without quantity', () => {
+        return (fetchOrdersAndCalculateTotal()
+        .then(total => expect(total).toBe(25))
+        )
     })
 })
