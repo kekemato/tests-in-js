@@ -1,3 +1,5 @@
+import { mockedFetch } from "./mockedFetch";
+
 export const orderTotal = (arrayOfOrders) => {
     let sum = arrayOfOrders.reduce(
         (reduced, item, index, array) => (
@@ -18,7 +20,7 @@ export const orderTotal = (arrayOfOrders) => {
 }
 
 export const fetchOrdersAndCalculateTotal = () => (
-    fetch('https://ad-snadbox.firebaseio.com/jfddl6/orders.json')
+    mockedFetch()
     .then(response => response.json())
     .then(data => orderTotal(data))
 )
